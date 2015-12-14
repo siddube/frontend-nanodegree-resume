@@ -15,13 +15,13 @@ var bio = {
     "skills" : skills,
     "biopic" : "https://media.licdn.com/media/AAEAAQAAAAAAAAQ0AAAAJDMzYjQ5NDA2LTNjYzMtNDQzOC1hY2NkLWI2NmYwMzMzMmUxOQ.jpg",
     "display" : function () {
-        
+
         //Add Basic Info
-        var formattedRole = HTMLheaderRole.replace("%data%", bio.role); 
+        var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
         $("#header").prepend(formattedRole);
         var formattedName = HTMLheaderName.replace("%data%", bio.name);
         $("#header").prepend(formattedName);
-        var formattedPic = HTMLbioPic.replace("%data%", bio.biopic); 
+        var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
         $("#header").append(formattedPic);
         var formattedWelMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
         $("#header").append(formattedWelMsg);
@@ -50,7 +50,7 @@ var bio = {
 
         var formattedLoc = HTMLlocation.replace("%data%", bio.contacts.location);
         $("#footerContacts").append(formattedLoc);
-    
+
     }
 };
 
@@ -85,19 +85,19 @@ var education = {
     ],
     "onlineCourses" : [
         {
-            "title" : "Nanodegree in UI Development", 
+            "title" : "Nanodegree in UI Development",
             "school" : "Udacity",
             "date" : 2016,
             "url" : ""
         },
         {
-            "title" : "Web Design For Everybody Specialization", 
+            "title" : "Web Design For Everybody Specialization",
             "school" : "University of Michigan, Coursera",
             "date" : 2015,
             "url" : ""
         },
         {
-            "title" : "Python For Everybody Specialization", 
+            "title" : "Python For Everybody Specialization",
             "school" : "University of Michigan, Coursera",
             "date" : 2016,
             "url" : ""
@@ -119,9 +119,9 @@ var education = {
                 $(".education-entry:last").append(formattedMajor);
             }
         }
-        
+
         $("#education").append(HTMLonlineClasses);
-        
+
         for(course in education.onlineCourses) {
             $("#education").append(HTMLschoolStart);
             var formattedName = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
@@ -161,13 +161,13 @@ var work = {
     ],
     "display" : function() {
         for(var job in work.jobs) {
-            
+
             $("#workExperience").append(HTMLworkStart);
             var formattedJob = HTMLworkEmployer.replace("%data%", work.jobs[job].employer) + HTMLworkTitle.replace("%data%", work.jobs[job].title);
             if(work.jobs[job].employer === "") {
                 formattedJob = formattedJob.replace("-", "");
             }
-            
+
             var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
             $(".work-entry:last").append(formattedDates);
 
@@ -185,7 +185,7 @@ var work = {
 };
 
 var project = {
-    
+
     "projects" : [
         {
             "title" : "Event Linked",
@@ -209,7 +209,7 @@ var project = {
             }
         }
     }
-    
+
 };
 
 // Display each resume section
