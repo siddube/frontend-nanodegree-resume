@@ -220,3 +220,8 @@ project.display();
 
 //Add Google Map info
 $("#mapDiv").append(googleMap);
+
+//Log User Clicks
+$(document).click(function(loc) {
+    logClicks(loc.pageX, loc.pageY);
+});
