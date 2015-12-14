@@ -135,7 +135,24 @@ a {
 .flex-box {
   display: -webkit-flex;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+#topContacts.flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+#footerContacts.flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
@@ -194,6 +211,9 @@ span {
   .welcome-message {
     display: none;
   }
+  img {
+    width: 100%;
+  }    
 }
 
 #map {
@@ -213,4 +233,5 @@ span {
   .biopic {
     display: block;
   }
+  
 }
