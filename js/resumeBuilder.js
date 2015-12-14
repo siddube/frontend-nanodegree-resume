@@ -212,7 +212,11 @@ var project = {
     
 };
 
+// Display each resume section
 bio.display();
 education.display();
 work.display();
 project.display();
+
+//Add Google Map info
+$("#mapDiv").append(googleMap);
