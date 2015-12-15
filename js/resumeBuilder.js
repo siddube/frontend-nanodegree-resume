@@ -11,46 +11,33 @@ var bio = {
         'twitter' : 'https://twitter.com/siddu_be',
         'location' : 'Jayanagar, Bangalore'
     },
-    'welcomeMessage' : 'Hello! My name is Prajwal Belagatti and I'm a UI Developer...',
+    'welcomeMessage' : 'Hello! My name is Prajwal Belagatti and I\'m a UI Developer...',
     'skills' : skills,
     'biopic' : 'https://media.licdn.com/media/AAEAAQAAAAAAAAQ0AAAAJDMzYjQ5NDA2LTNjYzMtNDQzOC1hY2NkLWI2NmYwMzMzMmUxOQ.jpg',
     'display' : function () {
-
         //Add Basic Info
         var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-        $('#header').prepend(formattedRole);
         var formattedName = HTMLheaderName.replace('%data%', bio.name);
-        $('#header').prepend(formattedName);
         var formattedPic = HTMLbioPic.replace('%data%', bio.biopic);
-        $('#header').append(formattedPic);
         var formattedWelMsg = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
-        $('#header').append(formattedWelMsg);
-
-        //Add Skills Div
-        $('#header').append(HTMLskillsStart);
-        for(var skill in bio.skills) {
+        $('#header').prepend(formattedRole).prepend(formattedName).append(formattedPic).append(formattedWelMsg).append(HTMLskillsStart);
+        
+        //Add skills
+        var len = bio.skills.length;
+        for(var skill = 0; skill < len ; skill++) {
             var formattedSkill = HTMLskills.replace('%data%', bio.skills[skill]);
             $('#skills').append(formattedSkill);
         }
 
         //Add Contact info
         var formattedMob = HTMLmobile.replace('%data%', bio.contacts.mobile);
-        $('#topContacts').append(formattedMob);
-        $('#footerContacts').append(formattedMob);
-
         var formattedMail = HTMLemail.replace('%data%', bio.contacts.email);
-        $('#topContacts').append(formattedMail);
-        $('#footerContacts').append(formattedMail);
-
         var formattedGit = HTMLgithub.replace('%data%', bio.contacts.github);
-        $('#footerContacts').append(formattedGit);
-
         var formattedTwit = HTMLtwitter.replace('%data%', bio.contacts.twitter);
-        $('#footerContacts').append(formattedTwit);
-
         var formattedLoc = HTMLlocation.replace('%data%', bio.contacts.location);
-        $('#footerContacts').append(formattedLoc);
-
+        
+        $('#topContacts').append(formattedMob).append(formattedMail);
+        $('#footerContacts').append(formattedMob).append(formattedMail).append(formattedGit).append(formattedTwit).append(formattedLoc);
     }
 };
 
@@ -144,14 +131,14 @@ var work = {
             'title' : 'Independent Flash Games Developer',
             'location' : 'Jayanagar, Bangalore',
             'dates' : '2010-2012',
-            'description' : 'Farm-to-table gentrify synth, gastropub pinterest cornhole artisan distillery keytar offal plaid pop-up organic godard. <br />Lo-fi post-ironic offal, tilde farm-to-table flexitarian health goth salvia thundercats plaid wolf banjo 90's. '
+            'description' : 'Farm-to-table gentrify synth, gastropub pinterest cornhole artisan distillery keytar offal plaid pop-up organic godard. <br />Lo-fi post-ironic offal, tilde farm-to-table flexitarian health goth salvia thundercats plaid wolf banjo 90\'s. '
         },
         {
             'employer' : '',
             'title' : 'Freelance Web Developer',
             'location' : 'Jayanagar, Bangalore',
             'dates' : '2012 - Present',
-            'description' : 'Occupy taxidermy shoreditch actually, you probably haven't heard of them intelligentsia stumptown. '
+            'description' : 'Occupy taxidermy shoreditch actually, you probably haven\'t heard of them intelligentsia stumptown. '
         },
         {
             'employer' : 'Event Linked',
@@ -176,7 +163,7 @@ var work = {
             var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
             $('.work-entry:last').append(formattedLocation);
 
-            $('.work-entry').append('<div style='clear:both;' ></div>');
+            $('.work-entry').append('<div style="clear:both;"></div>');
 
             var formattedDescp = HTMLworkDescription.replace('%data%', work.jobs[job].description);
             $('.work-entry:last').append(formattedDescp);
