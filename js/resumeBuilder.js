@@ -60,21 +60,13 @@ var education = {
             'majors' : ['Computer Science','Maths','Physics'],
             'dates' : 2007,
             'url' : ''
-        },
-        {
-            'name' : 'Vijaya High School',
-            'location' : 'Jayanagar, Bangalore',
-            'degree' : 'High School',
-            'majors' : '',
-            'dates' : 2005,
-            'url' : ''
         }
     ],
     'onlineCourses' : [
         {
             'title' : 'Nanodegree in UI Development',
             'school' : 'Udacity',
-            'date' : 2016,
+            'date' : 2015,
             'url' : ''
         },
         {
@@ -86,7 +78,7 @@ var education = {
         {
             'title' : 'Python For Everybody Specialization',
             'school' : 'University of Michigan, Coursera',
-            'date' : 2016,
+            'date' : 2015,
             'url' : ''
         }
     ],
@@ -96,17 +88,11 @@ var education = {
         for(var course in education.schools) {
             $('#education').append(HTMLschoolStart);
             formattedName = HTMLschoolName.replace('%data%', education.schools[course].name);
-            $('.education-entry:last').append(formattedName);
             formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.schools[course].degree);
-            $('.education-entry:last').append(formattedSchoolDegree);
             formattedDate = HTMLschoolDates.replace('%data%', education.schools[course].dates);
-            $('.education-entry:last').append(formattedDate);
             var formattedLoc = HTMLschoolLocation.replace('%data%', education.schools[course].location);
-            $('.education-entry:last').append(formattedLoc);
             var formattedMajor = HTMLschoolMajor.replace('%data%', education.schools[course].majors);
-            if(education.schools[course].majors !== '') {
-                $('.education-entry:last').append(formattedMajor);
-            }
+            $('.education-entry:last').append(formattedName).append(formattedDate).append(formattedLoc).append(formattedMajor);
         }
 
         $('#education').append(HTMLonlineClasses);
@@ -114,11 +100,9 @@ var education = {
         for(course in education.onlineCourses) {
             $('#education').append(HTMLschoolStart);
             formattedName = HTMLonlineTitle.replace('%data%', education.onlineCourses[course].title);
-            $('.education-entry:last').append(formattedName);
             var formattedSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[course].school);
-            $('.education-entry:last').append(formattedSchool);
             formattedDate = HTMLonlineDates.replace('%data%', education.onlineCourses[course].date);
-            $('.education-entry:last').append(formattedDate);
+            $('.education-entry:last').append(formattedName).append(formattedSchool).append(formattedDate);
         }
     }
 };
@@ -153,22 +137,15 @@ var work = {
 
             $('#workExperience').append(HTMLworkStart);
             var formattedJob = HTMLworkEmployer.replace('%data%', work.jobs[job].employer) + HTMLworkTitle.replace('%data%', work.jobs[job].title);
+            
             if(work.jobs[job].employer === '') {
                 formattedJob = formattedJob.replace('-', '');
             }
 
             var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
-            $('.work-entry:last').append(formattedDates);
-
             var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
-            $('.work-entry:last').append(formattedLocation);
-
-            $('.work-entry').append('<div style="clear:both;"></div>');
-
             var formattedDescp = HTMLworkDescription.replace('%data%', work.jobs[job].description);
-            $('.work-entry:last').append(formattedDescp);
-
-            $('.work-entry:last').prepend(formattedJob);
+            $('.work-entry:last').append(formattedDates).append(formattedLocation).append('<div style="clear:both;"></div>').append(formattedDescp).prepend(formattedJob);
         }
     }
 };
@@ -185,20 +162,18 @@ var project = {
     ],
     'display' : function() {
         for(var myproject in project.projects) {
-            $('#projects').append(HTMLprojectStart);
             var formattedTitle = HTMLprojectTitle.replace('%data%', project.projects[myproject].title);
-            $('.project-entry:last').append(formattedTitle);
             var formattedDates = HTMLprojectDates.replace('%data%', project.projects[myproject].dates);
-            $('.project-entry:last').append(formattedDates);
             var formattedDesc = HTMLprojectDescription.replace('%data%', project.projects[myproject].description);
-            $('.project-entry:last').append(formattedDesc);
+            $('#projects').append(HTMLprojectStart);
+            $('.project-entry:last').append(formattedTitle).append(formattedDates).append(formattedDesc);
+           
             for(var image in project.projects[myproject].images) {
                 var formattedPic = HTMLprojectImage.replace('%data%', project.projects[myproject].images[image]);
                 $('.project-entry:last').append(formattedPic);
             }
         }
     }
-
 };
 
 // Display each resume section
