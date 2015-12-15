@@ -49,7 +49,7 @@ var education = {
             'name' : 'Asian Institute of Gaming and Animation, AIGA',
             'location' : 'HAL Airport Road, Bangalore',
             'degree' : 'Diploma in Games Programming',
-            'majors' : 'Flash and ActionScript 3.0 Games Development',
+            'majors' : ['Flash and ActionScript 3.0 Games Development'],
             'dates' : 2010,
             'url' : ''
         },
@@ -57,7 +57,7 @@ var education = {
             'name' : 'Jain Pre University College, V V Puram',
             'location' : 'Jayanagar, Bangalore',
             'degree' : 'Pre-University',
-            'majors' : 'Computer Science, Maths, Physics',
+            'majors' : ['Computer Science','Maths','Physics'],
             'dates' : 2007,
             'url' : ''
         },
